@@ -8,6 +8,7 @@ import {
 
 import ProductCard from "../ProductCard/ProductCard";
 import { Action } from "../../types/action.types";
+import SectionHeader from "../SectionHeader/SectionHeader";
 
 interface Product {
   id: string;
@@ -29,10 +30,12 @@ const DynamicCollection = ({
     
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>
-        {title}
-      </Text>
-
+      <SectionHeader
+ title={title}
+ subtitle="Must-have summer favorites"
+ emoji="☀️"
+/>
+  {/* <View style={{ flex: 1, paddingHorizontal: 16 }}></View> */}
       <FlatList
         horizontal
         showsHorizontalScrollIndicator={false}

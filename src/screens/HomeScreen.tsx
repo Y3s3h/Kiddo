@@ -6,16 +6,12 @@ import homepageData from "../mock-data/homepage.json";
 
 import CartCounter from "../components/CartCounter/CartCounter";
 import CampaignBanner from "../components/CampaignBanner/CampaignBanner";
-import FullScreenOverlay
-from "../components/Overlay/FullScreenOverlay";
+import FullScreenOverlay from "../components/Overlay/FullScreenOverlay";
+import FloatingSaleBadge from "../components/FloatingSalebadge/FloatingSaleBadge";
 
-import {
-  ThemeProvider,
-} from "../context/ThemeContext";
+import { ThemeProvider } from "../context/ThemeContext";
 
-import {
-  campaignConfig,
-} from "../campaigns/campaignConfig";
+import { campaignConfig } from "../campaigns/campaignConfig";
 
 const HomeScreen = () => {
   const campaign =
@@ -24,26 +20,29 @@ const HomeScreen = () => {
     ];
 
   return (
-    <ThemeProvider
-      theme={homepageData.theme}
-    >
+    <ThemeProvider theme={homepageData.theme}>
       <SafeAreaView style={{ flex: 1 }}>
+        {/* Floating badge */}
+        <FloatingSaleBadge />
+
+        {/* Campaign Banner */}
         <CampaignBanner
           title={campaign.title}
           background={campaign.background}
         />
 
+        {/* Top Navbar */}
         <CartCounter />
 
+        {/* Dynamic Homepage */}
         <HomeRenderer
-          components={
-            homepageData.components
-          }
+          components={homepageData.components}
         />
 
-         <FullScreenOverlay
-      campaign={homepageData.campaign.name}
-    />
+        {/* Campaign Overlay */}
+        <FullScreenOverlay
+          campaign={homepageData.campaign.name}
+        />
       </SafeAreaView>
     </ThemeProvider>
   );

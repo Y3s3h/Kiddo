@@ -15,38 +15,92 @@ const CartCounter = () => {
 
   const theme = useTheme();
 
-  
-
   return (
-    <View
-      style={[
-        styles.container,
-        {
-          backgroundColor:
-            theme.background,
-        },
-      ]}
-    >
-      <Text
+    <View style={styles.wrapper}>
+      <View
         style={[
-          styles.text,
+          styles.container,
           {
-            color: theme.primary,
+            backgroundColor: "#fff",
           },
         ]}
       >
-        Cart: {count}
-      </Text>
+        <View>
+          <Text style={styles.greeting}>
+            👋 Hello Parent!
+          </Text>
+
+          <Text style={styles.subtitle}>
+            Everything for your kids
+          </Text>
+        </View>
+
+        <View
+          style={[
+            styles.cartBadge,
+            {
+              backgroundColor:
+                theme.primary,
+            },
+          ]}
+        >
+          <Text style={styles.cartText}>
+            🛒 {count}
+          </Text>
+        </View>
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    padding: 12,
+  wrapper: {
+    paddingHorizontal: 16,
+    paddingTop: 12,
+    marginBottom: 10,
   },
 
-  text: {
+  container: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+
+    padding: 20,
+
+    borderRadius: 24,
+
+    shadowColor: "#000",
+    shadowOpacity: 0.1,
+    shadowRadius: 10,
+
+    elevation: 5,
+  },
+
+  greeting: {
+    fontSize: 24,
+    fontWeight: "700",
+    color: "#111827",
+  },
+
+  subtitle: {
+    marginTop: 5,
+    fontSize: 14,
+    color: "#6B7280",
+  },
+
+  cartBadge: {
+    paddingHorizontal: 18,
+    paddingVertical: 12,
+    borderRadius: 30,
+
+    shadowColor: "#000",
+    shadowOpacity: 0.15,
+    shadowRadius: 8,
+    elevation: 4,
+  },
+
+  cartText: {
+    color: "white",
     fontSize: 18,
     fontWeight: "700",
   },

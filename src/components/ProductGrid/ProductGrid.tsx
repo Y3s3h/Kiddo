@@ -8,6 +8,8 @@ import {
 
 import ProductCard from "../ProductCard/ProductCard";
 import { Action } from "../../types/action.types";
+import { Dimensions } from "react-native";
+import SectionHeader from "../SectionHeader/SectionHeader";
 
 interface Product {
   id: string;
@@ -26,15 +28,27 @@ const ProductGrid = ({
   title,
   products,
 }: ProductGridProps) => {
+
+  const screenWidth = Dimensions.get("window").width;
+
+const numColumns =
+  screenWidth > 1000
+    ? 4
+    : screenWidth > 700
+    ? 3
+    : 2;
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>
-        {title}
-      </Text>
+     <SectionHeader
+ title={title}
+ subtitle="Top picks for your kids"
+ emoji="🔥"
+/>
 
       <FlatList
         data={products}
-        numColumns={2}
+       numColumns={numColumns}
+key={numColumns}
         scrollEnabled={false}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
