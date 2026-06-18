@@ -40,9 +40,9 @@ const HomeScreen = () => {
         />
 
         {/* Campaign Overlay */}
-        {/* <FullScreenOverlay
+        <FullScreenOverlay
           campaign={homepageData.campaign.name}
-        /> */}
+        />
       </SafeAreaView>
     </ThemeProvider>
   );

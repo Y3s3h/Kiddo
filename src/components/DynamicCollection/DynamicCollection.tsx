@@ -40,6 +40,7 @@ const DynamicCollection = ({
         horizontal
         showsHorizontalScrollIndicator={false}
         nestedScrollEnabled
+        removeClippedSubviews
         data={products}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
