@@ -39,6 +39,7 @@ const DynamicCollection = ({
       <FlatList
         horizontal
         showsHorizontalScrollIndicator={false}
+        nestedScrollEnabled
         data={products}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
